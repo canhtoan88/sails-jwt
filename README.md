@@ -29,10 +29,10 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 ## Workflow
 ### Routes --> config/policies -> api/policies/isAuthorized --> api/controller --> api/services --> api/utils
 #
-Khi gọi API, trước khi chuyển đến controller để xử lý, hệ thống sẽ check policies xem có policy nào được thiết lập ứng với route đó không:
+1. Khi gọi API, trước khi chuyển đến controller để xử lý, hệ thống sẽ check policies xem có policy nào được thiết lập ứng với route đó không:
 + Nếu không sẽ đi trực tiếp vào controllers
 + Nếu có, sẽ check client đã authenticated chưa, nếu chưa authenticated sẽ trả về lỗi, nếu đã authenticated sẽ chuyển đến controllers.
 #
-Method được gọi ở phần target sẽ được gọi để xử lý trong controller. Trong controllers, các services sẽ được gọi để xử lý và phản hồi cho client.
+2. Method được gọi ở phần target sẽ được gọi để xử lý trong controller. Trong controllers, các services sẽ được gọi để xử lý và phản hồi cho client.
 #
-Trong services sẽ có gọi đến jwt để encrypt/decrypt token và trả về token/data.
+3. Trong services sẽ có gọi đến jwt để encrypt/decrypt token và trả về token/data.
