@@ -1,3 +1,5 @@
+const jwt = require('../utils/jwt')
+
 module.exports = (req, res, next) => {
     let token;
 

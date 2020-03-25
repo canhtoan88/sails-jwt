@@ -17,7 +17,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  //'*': 'isAuthorized',
+  //'*': 'isAuthorized', // For all routes
   'UserController': {
     create: true, // Don't need authorization here
     login: true,
