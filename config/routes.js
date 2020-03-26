@@ -21,10 +21,16 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
-  'post /signup': 'UserController/create',
-  'post /login': 'UserController/login',
+  'post /signup':           'UserController/create',
+  'post /login':            'UserController/login',
 
-  'get /get-all-users': 'UserController/getAllUsers'
+  'get /user/:id':          'UserController/viewInfo',
+  'put /user/:id':          'UserController/updateInfo',
+  'delete /user/:id':       'UserController/deleteInfo',
+  
+  'put /user/search':       'UserController/search',
+
+  'get /get-all-users':     'UserController/getAllUsers'
 
 
   /***************************************************************************

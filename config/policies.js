@@ -21,7 +21,10 @@ module.exports.policies = {
   'UserController': {
     create: true, // Don't need authorization here
     login: true,
-    getAllUsers: 'isAuthorized'
+    viewInfo: 'isAuthorized',
+    updateInfo: 'isAuthorized',
+    deleteInfo: 'isAdmin',
+    getAllUsers: true //'isAuthorized',
   }
 
 };

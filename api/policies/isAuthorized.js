@@ -1,4 +1,4 @@
-const jwt = require('../utils/jwt')
+const Utils = require('../utils')
 
 module.exports = (req, res, next) => {
     let token;
@@ -16,10 +16,16 @@ module.exports = (req, res, next) => {
         return res.status(401).json({err: 'No Authorization header was found'});
     }
 
-    jwt.verify(token, (err, token) => {
-        if (err) //return res.badRequest(ErrorSystem.SYSTEM_PERMISSION_FAIL)
-            return res.status(401).json({error: 'Invalid token!'})
-        req.token = token;
-        next();
-    })
+    let userData; 
+    try {
+        userData = Utils.verify(token);
+    } catch (error) {
+        return res.badRequest('Token error: ' + error.message);
+    }
+    
+    if (!userData) 
+        return res.badRequest({error: 'Invalid token'});
+        
+    req.userData = userData;
+    next();
 }

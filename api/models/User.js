@@ -11,6 +11,10 @@ module.exports = {
         },
         fullname: {
             type: 'string'
+        },
+        email: {
+            type: 'string',
+            unique: true
         }
     },
 
@@ -20,6 +24,7 @@ module.exports = {
         value.password = bcrypt.hashSync(value.password, salt);
         // Auto-gen salt
         // value.encryptedPassword = bcrypt.hashSync(value.password, saltRound);
+
         next();
     },
 

@@ -1,13 +1,15 @@
 module.exports = {
-    create: (req, res) => {
-        UserService.createService(req, res);
-    },
+    create: UserService.createService,
 
-    login: (req, res) => {
-        UserService.loginService(req, res);
-    },
+    login: UserService.loginService,
 
-    getAllUsers: (req, res) => {
-        UserService.getAllUsersService(req, res);
-    }
+    search: UserService.searchService,
+
+    viewInfo: UserService.viewInfoService,
+
+    updateInfo: UserService.updateInfoService,
+
+    deleteInfo: UserService.deleteInfoService,
+
+    getAllUsers: UserService.getAllUsersService
 }
